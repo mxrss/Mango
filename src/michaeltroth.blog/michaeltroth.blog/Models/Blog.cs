@@ -34,12 +34,7 @@ namespace michaeltroth.blog.Models
         public static Blog CreateBlog(BlogCreationRequestInputModel model)
         {
             var blogInstance = model.ToBlog();
-            
-            MongoClient client = new MongoClient(Configuration.MongoServer);
-
-            var server = client.GetServer();
-            server.Connect();
-            var collection = server.GetDatabase("blog").GetCollection<Blog>("blog_entries");
+            var collection = GetConnection().GetDatabase("blog").GetCollection<Blog>("blog_entries");
 
 
             collection.Insert<Blog>(blogInstance);
@@ -55,12 +50,7 @@ namespace michaeltroth.blog.Models
 
         public static void EditBlog(BlogEditRequestInputModel model)
         {
-            MongoClient client = new MongoClient(Configuration.MongoServer);
-
-            var server = client.GetServer();
-            server.Connect();
-            var collection = server.GetDatabase("blog").GetCollection<Blog>("blog_entries");
-            
+            var collection = GetConnection().GetDatabase("blog").GetCollection<Blog>("blog_entries");   
             if (collection.FindOneById(ObjectId.Parse(model.Id))!= null)
             {
                 collection.Save<Blog>(model.ToBlog());
@@ -72,11 +62,7 @@ namespace michaeltroth.blog.Models
         public static IEnumerable<Blog> GetBlogs(int page = 0, int maxPerPage = 10)
         {
             ICollection<Blog> blogs = new List<Blog>();
-            MongoClient client = new MongoClient(Configuration.MongoServer);
-
-            var server = client.GetServer();
-            server.Connect();
-            var collection = server.GetDatabase("blog").GetCollection<Blog>("blog_entries");
+            var collection = GetConnection().GetDatabase("blog").GetCollection<Blog>("blog_entries");
 
             blogs = collection.AsQueryable<Blog>().Skip(page * maxPerPage)
                 .Take(maxPerPage).ToList();
@@ -85,13 +71,18 @@ namespace michaeltroth.blog.Models
         }
 
         public static Blog GetBlogById(string Id)
+        {;
+            var collection = GetConnection().GetDatabase("blog")
+                .GetCollection<Blog>("blog_entries").FindOneById(ObjectId.Parse(Id));
+            return collection;
+        }
+
+        private static MongoServer GetConnection()
         {
             MongoClient client = new MongoClient(Configuration.MongoServer);
-
             var server = client.GetServer();
             server.Connect();
-            var collection = server.GetDatabase("blog").GetCollection<Blog>("blog_entries").FindOneById(ObjectId.Parse(Id));
-            return collection;
+            return server;
         }
 
     }
