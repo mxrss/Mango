@@ -92,8 +92,10 @@ AppPackages/
 *.js.map
 
 # Application specific exclusions
+# we wont commit new versions of the web.config unless we have a new webconfig setting
 src/michaeltroth.blog/michaeltroth.blog/web.debug.config
 src/michaeltroth.blog/michaeltroth.blog/web.release.config
+src/michaeltroth.blog/michaeltroth.blog/web.config
 
 # Others
 [Ll]ogs
