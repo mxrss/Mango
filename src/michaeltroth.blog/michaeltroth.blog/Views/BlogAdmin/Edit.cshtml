@@ -1,0 +1,70 @@
+﻿@model michaeltroth.blog.Models.InputModel.BlogEditRequestInputModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Edit Blog Post</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.BlogTitle, "Title", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Model.BlogTitle
+                @Html.HiddenFor(model => model.BlogTitle)
+                @Html.ValidationMessageFor(model => model.BlogTitle)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BlogShortText, "Short Text", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BlogShortText)
+                @Html.ValidationMessageFor(model => model.BlogShortText)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BodyText, "Body", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(m => m.BodyText, 10, 60,null)
+                @Html.ValidationMessageFor(model => model.BodyText)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PublishDate, "Publish Date", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.PublishDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", @value = Model.PublishDate.ToString("YYYY-MM-DD") })
+                @Html.ValidationMessageFor(model => model.PublishDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DelimetedListOfTags, "Tags", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DelimetedListOfTags)
+                @Html.ValidationMessageFor(model => model.DelimetedListOfTags)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

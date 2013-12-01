@@ -1,0 +1,25 @@
+﻿* Features to complete
+
+A post consists of the following
+	*  A Title (requred)[will need to slug this] -- Done
+	*  A Publish date (will default to today if not specified) -- Done
+	*  A short summary (not required, will take the first 200 characters of the body) [Markup Only] -- done
+	*  A body (required) [HTML is allowable though most of the content should be using Markdown] -- done
+	*  A Set of tags (comma seperated) [will be exapanded into a array] -- Done
+
+* Add a post -- done
+	* simple setup -- done
+
+* List posts
+	* From administrative interface -- done
+	* from website list posts --
+
+* delete a existing post (no confirmation is required)
+  -- will do at another time.
+
+* edit an existing post
+	* just populate with data from the post. -- done
+	
+Bonus
+
+* Add comments using disquss
