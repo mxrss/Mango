@@ -96,6 +96,7 @@ AppPackages/
 src/michaeltroth.blog/michaeltroth.blog/web.debug.config
 src/michaeltroth.blog/michaeltroth.blog/web.release.config
 src/michaeltroth.blog/michaeltroth.blog/web.config
+src/michaeltroth.blog/michaeltroth.blog/*.config
 
 # Others
 [Ll]ogs
