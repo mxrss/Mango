@@ -95,8 +95,7 @@ AppPackages/
 # we wont commit new versions of the web.config unless we have a new webconfig setting
 src/michaeltroth.blog/michaeltroth.blog/web.debug.config
 src/michaeltroth.blog/michaeltroth.blog/web.release.config
-src/michaeltroth.blog/michaeltroth.blog/web.config
-src/michaeltroth.blog/michaeltroth.blog/*.config
+src/michaeltroth.blog/michaeltroth.blog/Web.config
 
 # Others
 [Ll]ogs
