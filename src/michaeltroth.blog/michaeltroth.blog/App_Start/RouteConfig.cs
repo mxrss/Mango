@@ -14,10 +14,18 @@ namespace michaeltroth.blog
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                    name: "BlogRoute",
+                    url: "{publishedDate}/{topic}",
+                    defaults: new { controller="home", action="blogEntry" },
+                    constraints: new { publishedDate = "[0-1][0-9]-[0-3][0-9]-20[12][0-9]" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

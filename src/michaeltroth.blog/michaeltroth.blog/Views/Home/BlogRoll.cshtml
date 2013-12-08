@@ -3,7 +3,7 @@
 @foreach (var blog in Model){
     <div class="row">
         <div class="row">
-            <h3>@Html.ActionLink(blog.Title, "detail", new { publishedDate = blog.PublishDate.ToShortDateString(), topic=blog.Title })</h3>
+            <h3>@Html.ActionLink(blog.Title, "BlogEntry", new { publishedDate = blog.PublishDate.ToString("MM-dd-yyyy"), topic=blog.Title.ToSlug() })</h3>
         </div>
         <p>
             @blog.ShortSummary

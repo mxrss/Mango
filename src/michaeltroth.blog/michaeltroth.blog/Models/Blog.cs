@@ -94,5 +94,14 @@ namespace michaeltroth.blog.Models
             return server;
         }
 
+
+        internal static Blog GetBlogById(DateTime publishedDate, string topic)
+        {
+            var blogInstances = GetConnection().GetDatabase("blog").GetCollection<Blog>("blog_entries");
+
+            var blog = blogInstances.AsQueryable().Where(x => x.PublishDate == publishedDate && x.Title == topic).SingleOrDefault();
+
+            return blog;
+        }
     }
 }

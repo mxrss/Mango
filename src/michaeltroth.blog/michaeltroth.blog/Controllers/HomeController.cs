@@ -14,7 +14,19 @@ namespace michaeltroth.blog.Controllers
             return View();
         }
 
+        [OutputCache(Duration=600)]
+        public ActionResult BlogEntry(DateTime publishedDate, string topic)
+        {
+            var blog = Blog.GetBlogById(publishedDate, topic.FromSlug());
 
+            if (blog == null)
+                return HttpNotFound("The post could not be found");
+
+
+            return View(blog);
+        }
+
+        [OutputCache(Duration=60)]
         public PartialViewResult BlogRoll()
         {
             var blogs = Blog.GetBlogs();
@@ -23,14 +35,14 @@ namespace michaeltroth.blog.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "How to get in contact with me.";
 
             return View();
         }

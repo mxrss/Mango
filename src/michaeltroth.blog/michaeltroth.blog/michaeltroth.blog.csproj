@@ -170,6 +170,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Controllers\BlogAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\SlugifyExtension.cs" />
     <Compile Include="Filters\ShowValidationErrorsAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +223,7 @@
     <Content Include="Views\BlogAdmin\Create.cshtml" />
     <Content Include="Views\BlogAdmin\Edit.cshtml" />
     <Content Include="Views\Home\topics.cshtml" />
+    <Content Include="Views\Home\BlogEntry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

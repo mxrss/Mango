@@ -16,6 +16,8 @@
             instance.ExtraMode = true;
             text = MakeCompatiableString(text);
 
+            text = text.Replace("[[", "<").Replace("]]", ">");
+
             return MvcHtmlString.Create(instance.Transform(text.Trim()));
         }
 
