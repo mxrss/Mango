@@ -170,6 +170,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Controllers\BlogAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Extensions\SlugifyExtension.cs" />
     <Compile Include="Filters\ShowValidationErrorsAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,6 +179,7 @@
     <Compile Include="Helpers\MarkdownHelper.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\InputModel\BlogCreationRequestInputModel.cs" />
+    <Compile Include="Models\InputModel\LoginInputModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -224,6 +226,7 @@
     <Content Include="Views\BlogAdmin\Edit.cshtml" />
     <Content Include="Views\Home\topics.cshtml" />
     <Content Include="Views\Home\BlogEntry.cshtml" />
+    <Content Include="Views\Session\new.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
