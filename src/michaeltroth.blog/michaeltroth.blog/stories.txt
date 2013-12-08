@@ -12,7 +12,14 @@ A post consists of the following
 
 * List posts
 	* From administrative interface -- done
-	* from website list posts --
+	* from website list posts --done
+	* Create post link using year/month/day/title -- slugified
+
+* View Individual post
+	* Look up post using published date and title slugififed
+	* display post 
+	* display markdown text
+	* add disquss comments
 
 * delete a existing post (no confirmation is required)
   -- will do at another time.

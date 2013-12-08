@@ -1,4 +1,5 @@
-﻿using System;
+﻿using michaeltroth.blog.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,13 @@ namespace michaeltroth.blog.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+
+        public PartialViewResult BlogRoll()
+        {
+            var blogs = Blog.GetBlogs();
+            return PartialView(blogs);
         }
 
         public ActionResult About()

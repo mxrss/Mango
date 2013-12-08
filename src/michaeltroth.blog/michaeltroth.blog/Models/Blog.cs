@@ -10,6 +10,13 @@ using MongoDB.Driver.Linq;
 
 namespace michaeltroth.blog.Models
 {
+    public enum BlogStatus
+    {
+        Published = 0,
+        All = 1
+    }
+
+
     public class Blog
     {
         
@@ -59,15 +66,17 @@ namespace michaeltroth.blog.Models
         }
 
 
-        public static IEnumerable<Blog> GetBlogs(int page = 0, int maxPerPage = 10)
+        public static IEnumerable<Blog> GetBlogs(BlogStatus status = BlogStatus.Published,  int page = 0, int maxPerPage = 10)
         {
-            ICollection<Blog> blogs = new List<Blog>();
             var collection = GetConnection().GetDatabase("blog").GetCollection<Blog>("blog_entries");
 
-            blogs = collection.AsQueryable<Blog>().Skip(page * maxPerPage)
-                .Take(maxPerPage).ToList();
+            var blogCollection = collection.AsQueryable<Blog>().Skip(page * maxPerPage)
+                .Take(maxPerPage);
 
-            return blogs;
+            if (status == BlogStatus.Published)
+                blogCollection.Where(x => x.PublishDate > DateTime.Now);
+
+            return blogCollection.OrderByDescending(x=> x.PublishDate).ToList();
         }
 
         public static Blog GetBlogById(string Id)

@@ -15,7 +15,7 @@ namespace michaeltroth.blog.Controllers
         // GET: /BlogAdmin/
         public ActionResult Index()
         {
-            var blogs = Blog.GetBlogs();
+            var blogs = Blog.GetBlogs(BlogStatus.All);
             return View(blogs);
         }
 

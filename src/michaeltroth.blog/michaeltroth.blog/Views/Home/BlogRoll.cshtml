@@ -1,56 +1,16 @@
-﻿<div class="row">
+﻿@model ICollection<michaeltroth.blog.Models.Blog>
+
+@foreach (var blog in Model){
     <div class="row">
-        <h3>This is a test</h3>
+        <div class="row">
+            <h3>@Html.ActionLink(blog.Title, "detail", new { publishedDate = blog.PublishDate.ToShortDateString(), topic=blog.Title })</h3>
+        </div>
+        <p>
+            @blog.ShortSummary
+        </p>
+        <div class="badge">
+            @blog.PublishDate.ToString("dddd MMMM dd, yyyy")
+        </div>
+        @Html.Partial("topics", blog.Tags)
     </div>
-    <p>
-        this is even more content
-    </p>
-</div>
-<div class="row">
-    <div class="row">
-        <h3>This is a test</h3>
-    </div>
-    <p>
-        this is even more content
-    </p>
-</div>
-<div class="row">
-    <div class="row">
-        <h3>This is a test</h3>
-    </div>
-    <p>
-        this is even more content
-    </p>
-</div>
-<div class="row">
-    <div class="row">
-        <h3>This is a test</h3>
-    </div>
-    <p>
-        this is even more content
-    </p>
-</div>
-<div class="row">
-    <div class="row">
-        <h3>This is a test</h3>
-    </div>
-    <p>
-        this is even more content
-    </p>
-</div>
-<div class="row">
-    <div class="row">
-        <h3>This is a test</h3>
-    </div>
-    <p>
-        this is even more content
-    </p>
-</div>
-<div class="row">
-    <div class="row">
-        <h3>This is a test</h3>
-    </div>
-    <p>
-        this is even more content
-    </p>
-</div>
+}
