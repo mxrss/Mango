@@ -99,7 +99,7 @@ namespace michaeltroth.blog.Models
         {
             var blogInstances = GetConnection().GetDatabase("blog").GetCollection<Blog>("blog_entries");
 
-            var blog = blogInstances.AsQueryable().Where(x => x.PublishDate <= publishedDate &&  x.PublishDate >= publishedDate
+            var blog = blogInstances.AsQueryable().Where(x => (x.PublishDate >= publishedDate.AddDays(-1) &&  x.PublishDate >= publishedDate.AddDays(1))
                 && x.Title == topic).SingleOrDefault();
 
             return blog;
