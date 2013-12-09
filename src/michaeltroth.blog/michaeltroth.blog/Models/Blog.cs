@@ -26,7 +26,7 @@ namespace michaeltroth.blog.Models
         [BsonElement("blog_title")]
         public string Title { get; set; }
 
-        [BsonDateTimeOptions(DateOnly=true, Kind=DateTimeKind.Utc)]
+        [BsonDateTimeOptions()]
         public DateTime PublishDate { get; set; }
 
         [BsonElement("blog_shortText")]
@@ -74,7 +74,7 @@ namespace michaeltroth.blog.Models
                 .Take(maxPerPage);
 
             if (status == BlogStatus.Published)
-                blogCollection.Where(x => x.PublishDate > DateTime.Now);
+                blogCollection = blogCollection.Where(x => x.PublishDate <= DateTime.Now);
 
             return blogCollection.OrderByDescending(x=> x.PublishDate).ToList();
         }

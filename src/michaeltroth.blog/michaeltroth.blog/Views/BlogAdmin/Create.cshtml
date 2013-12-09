@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PublishDate, "Publish Date", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PublishDate.ToString("yyyy-mm-dd"))
+                @Html.EditorFor(model => model.PublishDate)
                 @Html.ValidationMessageFor(model => model.PublishDate)
             </div>
         </div>
