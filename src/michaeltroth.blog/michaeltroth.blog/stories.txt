@@ -16,17 +16,17 @@ A post consists of the following
 	* Create post link using year/month/day/title -- slugified
 
 * View Individual post
-	* Look up post using published date and title slugififed
-	* display post 
-	* display markdown text
-	* add disquss comments
+	* Look up post using published date and title slugififed - done
+	* display post - done
+	* display markdown text - done
+	* add disquss comments - done
 
 * delete a existing post (no confirmation is required)
-  -- will do at another time.
+  -- will do at another time. -- just need to do this to have this be released as 1.0.
 
 * edit an existing post
 	* just populate with data from the post. -- done
 	
 Bonus
 
-* Add comments using disquss
+* Add comments using disquss - done
