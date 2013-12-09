@@ -28,7 +28,7 @@ namespace michaeltroth.blog.Controllers
             else
             {
                 FormsAuthentication.SetAuthCookie(model.UserName, false);
-                return RedirectToAction("BlogAdmin");
+                return RedirectToAction("index", "BlogAdmin");
             }
 
         }

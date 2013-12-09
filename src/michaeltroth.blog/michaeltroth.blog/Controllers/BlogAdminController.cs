@@ -35,7 +35,7 @@ namespace michaeltroth.blog.Controllers
             if (ModelState.IsValid)
             {
                 Blog.CreateBlog(model);
-                TempData.Add("status", "Craeted Successfully");
+                TempData.Add("status", "Blog Created!");
                 return RedirectToAction("index");
             }
 
@@ -57,7 +57,7 @@ namespace michaeltroth.blog.Controllers
             if (ModelState.IsValid)
             {
                 Blog.EditBlog(model);
-                TempData.Add("status", "Craeted Successfully");
+                TempData.Add("status", "Blog Updated!");
                 return RedirectToAction("index");
             }
 

@@ -9,6 +9,10 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@if (TempData["status"] != null)
+    {
+        <span class="alert-danger">@TempData["status"]</span>
+    }
 <table class="table">
     <tr>
         <th>
