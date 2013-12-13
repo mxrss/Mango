@@ -9,7 +9,7 @@ namespace michaeltroth.blog
     {
         public static string ToSlug(this string nonSlug)
         {
-            return nonSlug.Replace(' ', '-');
+            return nonSlug.Replace(":", " ").Replace(";", " ").Replace("&", " ").Replace("$", " ").Replace(' ', '-');
         }
 
         public static string FromSlug(this string slug)
