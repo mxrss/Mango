@@ -60,7 +60,7 @@ namespace michaeltroth.blog.Controllers
                 TempData.Add("status", "Blog Updated!");
                 return RedirectToAction("index");
             }
-
+            
             return RedirectToAction("edit", new { id = id });
         }
 	}

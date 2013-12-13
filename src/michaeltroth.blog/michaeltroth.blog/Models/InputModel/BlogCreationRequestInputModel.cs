@@ -38,6 +38,7 @@ namespace michaeltroth.blog.Models.InputModel
                  ShortSummary = this.BlogShortText,
                   TextBody = this.BodyText,
                    Title = this.BlogTitle,
+                   Slug = this.BlogTitle.ToSlug(),
                    Tags = GetCommaList(this.DelimetedListOfTags)
             };
         }

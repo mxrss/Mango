@@ -23,6 +23,9 @@ namespace michaeltroth.blog.Models
         [BsonId]
         public BsonObjectId Id { get; set; }
 
+        [BsonElement("blog_slug")]
+        public string Slug { get; set; }
+
         [BsonElement("blog_title")]
         public string Title { get; set; }
 
@@ -95,12 +98,12 @@ namespace michaeltroth.blog.Models
         }
 
 
-        internal static Blog GetBlogById(DateTime publishedDate, string topic)
+        internal static Blog GetBlogById(DateTime publishedDate, string slug)
         {
             var blogInstances = GetConnection().GetDatabase("blog").GetCollection<Blog>("blog_entries");
 
             var blog = blogInstances.AsQueryable().Where(x => (x.PublishDate >= publishedDate.AddDays(-1) &&  x.PublishDate <= publishedDate.AddDays(1))
-                && x.Title == topic).SingleOrDefault();
+                && x.Slug == slug).SingleOrDefault();
 
             return blog;
         }

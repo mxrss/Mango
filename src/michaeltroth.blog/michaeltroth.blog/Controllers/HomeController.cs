@@ -17,7 +17,7 @@ namespace michaeltroth.blog.Controllers
         [OutputCache(Duration=600)]
         public ActionResult BlogEntry(DateTime publishedDate, string topic)
         {
-            var blog = Blog.GetBlogById(publishedDate, topic.FromSlug());
+            var blog = Blog.GetBlogById(publishedDate, topic);
 
             if (blog == null)
                 return HttpNotFound("The post could not be found");
